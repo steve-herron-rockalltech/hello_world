@@ -1,0 +1,61 @@
+Configuration (for ui and web service users) associated with upgrading COLLATE 16.3 to COLLATE 16.4
+#####################################################################################################
+
+.. note:: 
+   The code documented in this section is required by customers consuming COLLATE via both web services and the UI.
+
+  
+
+.. note::
+
+   Where the **VISIBLE_STATE** value is used in a package, ensure you include the following statement:  
+   
+.. code:: sql
+
+    declare
+    VISIBLE_STATE VARCHAR2(10) DEFAULT 'VISIBLE';
+
+.. note::
+
+   Where <role code> is used, insert the role for which permission is being granted.  
+ 
+TBD title required TBD
+=======================================
+
+
+ 
+Granting permission to one or more roles so that they have access to run Marketable Security web services
+--------------------------------------------------------------------------------------------------------------
+
+.. code-block:: sql
+   :linenos:
+   
+   PKG_RCK_BUILD_UTILS.add_permission_to_role('marketableSecurityPortfolioUpdate', <role code>);
+
+
+
+ 
+Validating fields used when running Marketable Security web services
+---------------------------------------------------------------------
+
+.. code-block:: sql
+   :linenos:
+   
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.numberOfUnits', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.inceptionCcyCd', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.inceptionAmount', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.marketCcyCd', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.marketAmount', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.sector', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.eligible', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.haircut', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.details', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.maturityDate', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.statusCd', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.idType', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.idCode', 'ManualMarketableSecurity', VISIBLE_STATE);
+   PKG_RCK_BUILD_UTILS.add_product_conf (2, 'manualMarketableSecurity.marketableSecurityName', 'ManualMarketableSecurity', VISIBLE_STATE);
+   
+
+   
+
